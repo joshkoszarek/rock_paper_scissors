@@ -1,9 +1,113 @@
 * { 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(233, 230, 230);
 }
 
 body { 
     display: flex;
-    flex-direction: column ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    background-color: rgb(10, 10, 10);
+    box-sizing: border-box;
+}
 
+.dumby-div { 
+    background-color: blue;
+}
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    background-color: rgb(19, 19, 19);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.main-header { 
+    align-self: center;
+    font-size: 25px;
+}
+
+.player-selection-container { 
+    display: flex;
+    align-items: center;
+    
+}
+
+.button-selection-container { 
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    
+}
+
+.player-selection-container p { 
+    flex: 1;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.computer-selection-container { 
+    display: flex;
+    align-items: center;
+   
+}
+
+.computer-choice-title { 
+    flex: 1; 
+    font-size: 20px;
+    font-weight: 700;
+ 
+}
+.computer-selection-container p { 
+    flex: 1;
+}
+.current-game-container { 
+    display: flex;
+    
+
+}
+
+.rule-title { 
+    align-self: center;
+    flex: 1;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.current-game-display-container { 
+    margin-top: 40px;
+    flex: 1;
+   
+}
+.current-game-display { 
+    background-color: rgb(8, 8, 8);
+    padding: 20px;
+    border-radius: 5px;
+    
+}
+
+.game-title { 
+    font-weight: 700;
+}
+
+.game-control-container { 
+    margin-top: 40px;
+    
+    display: flex;
+   
+    justify-content: center;
+    gap:100px;
+}
+
+.selection-button { 
+    padding: 10px;
+    border-radius: 20px;
+    width: 100px;
+    border-color: white;
+    background-color: rgb(26, 26, 26);
+    font-weight: 600;
 }
