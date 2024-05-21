@@ -20,6 +20,7 @@ let roundResults = '';
 const rock_btn = document.querySelector("#rock-btn");
 const paper_btn = document.querySelector("#paper-btn");
 const scissors_btn = document.querySelector("#scissors-btn"); 
+const reset_btn = document.querySelector('#reset-btn');
 
 
 /// major functions for game play 
@@ -86,6 +87,8 @@ function checkGameOver(humanScore,computerScore){
 
     }
 }
+
+
 //// Button Event Listeners 
 
 rock_btn.addEventListener("click", () => { 
@@ -144,4 +147,15 @@ scissors_btn.addEventListener("click", () => {
     console.log(`Human Score: ${humanScore} Computer Score ${computerScore}`); 
 }); 
 
-
+reset_btn.addEventListener("click", () => { 
+    humanScore = 0; 
+    computerScore = 0; 
+    let currentComputerScore = document.querySelector('#currentComputerScore'); 
+    let currentUserScore = document.querySelector('#currentUserScore'); 
+    let roundResultsMessage = document.querySelector('#roundResultMessage'); 
+    let computerChoice = document.querySelector('.current-computer-choice'); 
+    currentComputerScore.textContent = '0'; 
+    currentUserScore.textContent = '0'; 
+    roundResultsMessage.textContent = ''; 
+    computerChoice.textContent = '';
+})
