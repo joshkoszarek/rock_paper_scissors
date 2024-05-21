@@ -77,7 +77,7 @@ function updateDisplay(computerScore, humanScore, computerChoice, humanChoice, r
 }
 
 function checkGameOver(humanScore,computerScore){ 
-    let roundResultsMessage = document.querySelector("#roundResultMessage");
+    let roundResultsMessage = document.querySelector("#roundResultMessage"); 
 
     if (humanScore >= 5) { 
         roundResultsMessage.textContent = 'You win the game! Press reset to play again.';
@@ -100,59 +100,65 @@ function capitalizeFirstLetter(word){
 //// Button Event Listeners 
 
 rock_btn.addEventListener("click", () => { 
-    alert("Rock button pressed");
+    
     humanChoice = 'rock';
     computerChoice = getComputerChoice()
-    roundResults = playRound(humanChoice, computerChoice);
-    if (roundResults === 'user wins') { 
-        humanScore +=1; 
+    if (humanScore < 5 && computerScore < 5){
+        roundResults = playRound(humanChoice, computerChoice);
+        if (roundResults === 'user wins') { 
+            humanScore +=1; 
+
+        }
+        else if (roundResults === 'computer wins') {
+            computerScore +=1;
+        }
+        updateDisplay(computerScore, humanScore, computerChoice, humanChoice, roundResults);
+        checkGameOver(humanScore, computerScore);
 
     }
-    else if (roundResults === 'computer wins') {
-        computerScore +=1;
-    }
-    updateDisplay(computerScore, humanScore, computerChoice, humanChoice, roundResults);
-    checkGameOver(humanScore, computerScore); 
-    console.log(humanChoice);
-    console.log(`Human Score: ${humanScore} Computer Score ${computerScore}`); 
+    
+   
 }); 
 
  
 paper_btn.addEventListener("click", () => { 
-    alert("Paper button pressed");
+    
     humanChoice = 'paper';
     computerChoice = getComputerChoice()
-    roundResults = playRound(humanChoice, computerChoice);
-    if (roundResults === 'user wins') { 
-        humanScore +=1; 
+    if (humanScore < 5 && computerScore < 5) { 
+        roundResults = playRound(humanChoice, computerChoice);
+        if (roundResults === 'user wins') { 
+            humanScore +=1; 
+
+        }
+        else if (roundResults === 'computer wins'){
+            computerScore +=1;
+        }
+        updateDisplay(computerScore, humanScore, computerChoice, humanChoice, roundResults);
+        checkGameOver(humanScore, computerScore);
 
     }
-    else if (roundResults === 'computer wins'){
-        computerScore +=1;
-    }
-    updateDisplay(computerScore, humanScore, computerChoice, humanChoice, roundResults);
-    checkGameOver(humanScore, computerScore);
-    console.log(humanChoice);
-    console.log(`Human Score: ${humanScore} Computer Score ${computerScore}`); 
     
 }); 
 
 scissors_btn.addEventListener("click", () => { 
-    alert("Scissors button pressed");
+    
     humanChoice = 'scissors';
     computerChoice = getComputerChoice()
-    roundResults = playRound(humanChoice, computerChoice);
-    if (roundResults === 'user wins') { 
-        humanScore +=1; 
+    if (humanScore < 5 && computerScore < 5) { 
+        roundResults = playRound(humanChoice, computerChoice);
+        if (roundResults === 'user wins') { 
+            humanScore +=1; 
 
+        }
+        else if (roundResults === 'computer wins'){
+            computerScore +=1;
+        }
+        updateDisplay(computerScore, humanScore, computerChoice, humanChoice, roundResults);
+        checkGameOver(humanScore, computerScore);
+        
     }
-    else if (roundResults === 'computer wins'){
-        computerScore +=1;
-    }
-    updateDisplay(computerScore, humanScore, computerChoice, humanChoice, roundResults);
-    checkGameOver(humanScore, computerScore);
-    console.log(humanChoice);
-    console.log(`Human Score: ${humanScore} Computer Score ${computerScore}`); 
+  
 }); 
 
 reset_btn.addEventListener("click", () => { 
