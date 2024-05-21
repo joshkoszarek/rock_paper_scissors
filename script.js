@@ -1,18 +1,5 @@
 
 
-function getComputerChoice(){ 
-    let numberChoice = Math.floor(Math.random() * 3) + 1;
-    let computerChoice = undefined;
-    if (numberChoice === 1) { 
-        return computerChoice = 'rock'; 
-    } 
-    else if (numberChoice === 2) { 
-        return computerChoice = 'scissors';
-    }
-    else 
-        return computerChoice = 'paper';
-}
-
 let humanScore = 0; 
 let computerScore = 0; 
 let humanChoice = ''; 
@@ -25,7 +12,21 @@ const reset_btn = document.querySelector('#reset-btn');
 
 /// major functions for game play 
 
-function playRound(humanChoice, computerChoice){ 
+function getComputerChoice(){ // grabs a random choice of rock, paper, or scissors
+    let numberChoice = Math.floor(Math.random() * 3) + 1;
+    let computerChoice = undefined;
+    if (numberChoice === 1) { 
+        return computerChoice = 'rock'; 
+    } 
+    else if (numberChoice === 2) { 
+        return computerChoice = 'scissors';
+    }
+    else 
+        return computerChoice = 'paper';
+}
+
+
+function playRound(humanChoice, computerChoice){  // the logic behind a rock paper scissors game
     if (humanChoice === 'rock' && computerChoice === 'paper'){ 
         return 'computer wins';
        
@@ -55,7 +56,7 @@ function playRound(humanChoice, computerChoice){
         
 }
 
-function updateDisplay(computerScore, humanScore, computerChoice, humanChoice, roundResults) { 
+function updateDisplay(computerScore, humanScore, computerChoice, humanChoice, roundResults) { // Takes all the logic being computed and displays it to the user
     let currentComputerChoice = document.querySelector(".current-computer-choice"); 
     currentComputerChoice.textContent = `${capitalizeFirstLetter(computerChoice)}`; 
     let currentComputerScore = document.querySelector("#currentComputerScore"); 
@@ -76,7 +77,7 @@ function updateDisplay(computerScore, humanScore, computerChoice, humanChoice, r
     }
 }
 
-function checkGameOver(humanScore,computerScore){ 
+function checkGameOver(humanScore,computerScore){ // How a winner is declared 
     let roundResultsMessage = document.querySelector("#roundResultMessage"); 
 
     if (humanScore >= 5) { 
@@ -88,7 +89,7 @@ function checkGameOver(humanScore,computerScore){
     }
 }
 
-function capitalizeFirstLetter(word){
+function capitalizeFirstLetter(word){ // Allows messages to be printed with correct capitalization
     let arrayOfLetters = word.split(''); 
     arrayOfLetters[0] = arrayOfLetters[0].toUpperCase(); 
     let capitalizedWord = arrayOfLetters.join(''); 
@@ -99,7 +100,7 @@ function capitalizeFirstLetter(word){
 
 //// Button Event Listeners 
 
-rock_btn.addEventListener("click", () => { 
+rock_btn.addEventListener("click", () => { // A round is able to be played when pressing the rock button
     
     humanChoice = 'rock';
     computerChoice = getComputerChoice()
@@ -121,7 +122,7 @@ rock_btn.addEventListener("click", () => {
 }); 
 
  
-paper_btn.addEventListener("click", () => { 
+paper_btn.addEventListener("click", () => { // A round is able to be played when pressing the paper button
     
     humanChoice = 'paper';
     computerChoice = getComputerChoice()
@@ -141,7 +142,7 @@ paper_btn.addEventListener("click", () => {
     
 }); 
 
-scissors_btn.addEventListener("click", () => { 
+scissors_btn.addEventListener("click", () => { // A round is able to be played when pressing the scissor button
     
     humanChoice = 'scissors';
     computerChoice = getComputerChoice()
@@ -161,7 +162,7 @@ scissors_btn.addEventListener("click", () => {
   
 }); 
 
-reset_btn.addEventListener("click", () => { 
+reset_btn.addEventListener("click", () => {  // Allows the user to reset the game
     humanScore = 0; 
     computerScore = 0; 
     let currentComputerScore = document.querySelector('#currentComputerScore'); 
