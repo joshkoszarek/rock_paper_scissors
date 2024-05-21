@@ -57,21 +57,21 @@ function playRound(humanChoice, computerChoice){
 
 function updateDisplay(computerScore, humanScore, computerChoice, humanChoice, roundResults) { 
     let currentComputerChoice = document.querySelector(".current-computer-choice"); 
-    currentComputerChoice.textContent = `${computerChoice}`; 
+    currentComputerChoice.textContent = `${capitalizeFirstLetter(computerChoice)}`; 
     let currentComputerScore = document.querySelector("#currentComputerScore"); 
     currentComputerScore.textContent = `${computerScore}`; 
     let currentUserScore = document.querySelector("#currentUserScore"); 
     currentUserScore.textContent = `${humanScore}`; 
     let roundResultsMessage = document.querySelector("#roundResultMessage"); 
     if (roundResults === 'user wins'){ 
-        roundResultsMessage.textContent = `${humanChoice} beats ${computerChoice}. You won this round!`; 
+        roundResultsMessage.textContent = `${capitalizeFirstLetter(humanChoice)} beats ${computerChoice}. You won this round!`; 
 
     }
     else if (roundResults === 'computer wins'){ 
-        roundResultsMessage.textContent = `${computerChoice} beats ${humanChoice}. Computer won this round!`;
+        roundResultsMessage.textContent = `${capitalizeFirstLetter(computerChoice)} beats ${humanChoice}. Computer won this round!`;
     }
     else { 
-        roundResultsMessage.textContent = `It's a tie! ${computerChoice} ties ${humanChoice}.`;
+        roundResultsMessage.textContent = `It's a tie! ${capitalizeFirstLetter(computerChoice)} ties ${humanChoice}.`;
 
     }
 }
@@ -86,6 +86,14 @@ function checkGameOver(humanScore,computerScore){
         roundResultsMessage.textContent = 'The computer beat you! Press reset to play again.'; 
 
     }
+}
+
+function capitalizeFirstLetter(word){
+    let arrayOfLetters = word.split(''); 
+    arrayOfLetters[0] = arrayOfLetters[0].toUpperCase(); 
+    let capitalizedWord = arrayOfLetters.join(''); 
+    return capitalizedWord
+
 }
 
 
@@ -159,3 +167,5 @@ reset_btn.addEventListener("click", () => {
     roundResultsMessage.textContent = ''; 
     computerChoice.textContent = '';
 })
+
+

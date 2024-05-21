@@ -65,6 +65,10 @@ body {
 .computer-selection-container p { 
     flex: 1;
 }
+
+.current-computer-choice { 
+    font-weight: 700;
+}
 .current-game-container { 
     display: flex;
     
@@ -103,6 +107,7 @@ body {
     background-color: rgb(8, 8, 8);
     padding: 20px;
     border-radius: 5px;
+    height: 100px;
     
 }
 
