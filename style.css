@@ -129,6 +129,13 @@ body {
     border-radius: 20px;
     width: 100px;
     border-color: white;
+    border: 0;
     background-color: rgb(26, 26, 26);
     font-weight: 600;
 }
+
+.selection-button:hover{ 
+    background-color: rgb(53, 53, 53);
+    cursor: pointer;
+}
+
